@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
+import FriendsRootPage from "./features/friends/pages/root.tsx";
 import FriendsListPage from "./features/friends/pages/list.tsx";
 import App from "./App.tsx";
 
@@ -13,7 +14,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/friends",
-    element: <FriendsListPage />,
+    element: <FriendsRootPage />,
+    children: [
+      {
+        path: "list",
+        element: <FriendsListPage />,
+      },
+    ],
   },
 ]);
 
