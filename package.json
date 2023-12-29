@@ -18,6 +18,7 @@
     ]
   },
   "dependencies": {
+    "@radix-ui/react-separator": "^1.0.3",
     "axios": "^1.6.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
