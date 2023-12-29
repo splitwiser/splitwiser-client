@@ -22,7 +22,7 @@ export default function FriendsListPage() {
   }
 
   return (
-    <ul>
+    <ul className="grid grid-cols-3 gap-5">
       {friends.data.map((friend: Friend) => {
         return (
           <FriendCard
