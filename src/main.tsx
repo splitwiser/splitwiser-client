@@ -6,6 +6,7 @@ import "./index.css";
 import { ThemeProvider } from "./components/theme-provider.tsx";
 import FriendsRootPage from "./features/friends/pages/root.tsx";
 import FriendsListPage from "./features/friends/pages/list.tsx";
+import FriendDetailPage from "./features/friends/pages/detail.tsx";
 import Root from "./App.tsx";
 
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
           {
             path: "",
             element: <FriendsListPage />,
+          },
+          {
+            path: ":friendId",
+            element: <FriendDetailPage />,
           },
         ],
       },

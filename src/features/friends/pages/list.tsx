@@ -1,9 +1,12 @@
+// External
+import { Link } from "react-router-dom";
 import useSWR from "swr";
+
+// Internal
 import fetcher from "../../api";
-
-import { Skeleton } from "@/components/ui/skeleton";
 import FriendCard from "../components/FriendCard";
-
+import PageTitle from "@/components/page-title";
+import { Skeleton } from "@/components/ui/skeleton";
 import type { Friend } from "@/types/friends";
 
 export default function FriendsListPage() {
@@ -22,16 +25,21 @@ export default function FriendsListPage() {
   }
 
   return (
-    <ul className="grid grid-cols-3 gap-5">
-      {friends.data.map((friend: Friend) => {
-        return (
-          <FriendCard
-            key={friend.friend_id}
-            friendName={friend.friend_username}
-            balance={friend.total_amount_due}
-          />
-        );
-      })}
-    </ul>
+    <>
+      <PageTitle>Your Friends</PageTitle>
+      <ul className="grid grid-cols-3 gap-5">
+        {friends.data.map((friend: Friend) => {
+          return (
+            <Link to={`${friend.friend_id}`}>
+              <FriendCard
+                key={friend.friend_id}
+                friendName={friend.friend_username}
+                balance={friend.total_amount_due}
+              />
+            </Link>
+          );
+        })}
+      </ul>
+    </>
   );
 }

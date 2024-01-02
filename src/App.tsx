@@ -43,7 +43,7 @@ function Root() {
         </nav>
       </aside>
       <Separator orientation="vertical" className="absolute left-64" />
-      <main className="">
+      <main className="grow p-8">
         <Outlet />
       </main>
     </div>
